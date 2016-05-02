@@ -169,9 +169,9 @@ span.code pre {
 }
 
 span.wrapped pre {
-    word-wrap: break-word;
+    task-wrap: break-task;
     white-space: pre-wrap;
-    word-break: break-all;
+    task-break: break-all;
 }
 
 label.hidden {

@@ -22,36 +22,57 @@ public class AppTest extends FluentTest {
   @Test
   public void rootTest() {
     goTo("http://localhost:4567/");
-    assertThat(pageSource()).contains("Construct Your Own Dictionary!");
+    assertThat(pageSource()).contains("Task list!");
   }
 
   @Test
-  public void wordIsCreatedTest() {
+  public void taskIsCreatedTest() {
     goTo("http://localhost:4567/");
-    fill("#vocabWord").with("Saved Word");
+    fill("#tasks").with("Saved Task");
     submit(".btn");
-    assertThat(pageSource()).contains("Your word has been saved.");
+    assertThat(pageSource()).contains("Your task has been saved.");
   }
 
   @Test
-  public void WordIsDisplayedTest() {
+    public void taskIsCreatedTest() {
+      goTo("http://localhost:4567/");
+      fill("#description").with("Mow the lawn");
+      submit(".btn");
+      assertThat(pageSource()).contains("Your task has been saved.");
+    }
+
+  @Test
+  public void multipleTasksAreDisplayedTest() {
     goTo("http://localhost:4567/");
-    fill("#vocabWord").with("SavedWord");
+    fill("#tasks").with("Multi Tasks");
     submit(".btn");
     click("a", withText("Go Back"));
-    assertThat(pageSource()).contains("SavedWord");
+    fill("#tasks").with("Tasks Multi");
+    submit(".btn");
+    click("a", withText("Go Back"));
+    assertThat(pageSource()).contains("Multi Tasks");
+    assertThat(pageSource()).contains("Tasks Multi");
   }
 
   @Test
-  public void multipleWordsAreDisplayedTest() {
+  public void taskIsDisplayedTest() {
     goTo("http://localhost:4567/");
-    fill("#vocabWord").with("Multi Words");
+    fill("#description").with("Mow the lawn");
     submit(".btn");
     click("a", withText("Go Back"));
-    fill("#vocabWord").with("Words Multi");
+    assertThat(pageSource()).contains("Mow the lawn");
+  }
+
+  @Test
+  public void multipleTasksAreDisplayedTest() {
+    goTo("http://localhost:4567/");
+    fill("#description").with("Mow the lawn");
     submit(".btn");
     click("a", withText("Go Back"));
-    assertThat(pageSource()).contains("Multi Words");
-    assertThat(pageSource()).contains("Words Multi");
+    fill("#description").with("Buy groceries");
+    submit(".btn");
+    click("a", withText("Go Back"));
+    assertThat(pageSource()).contains("Mow the lawn");
+    assertThat(pageSource()).contains("Buy groceries");
   }
 }
