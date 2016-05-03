@@ -35,7 +35,13 @@ public class CategoryTest {
     assertEquals(0, Category.all().size());
   }
 
+  @Test
+  public void getId_categoriesInstantiateWithAnId_1() {
+    Category testCategory = new Category("Home");
+    assertEquals(1, testCategory.getId());
+  }
+
 
 }
 
-// git commit -m "add third working test in -categoryTest- with all necessary code to make the .all method on Category return all instances of Category"
+// git commit -m "add forth working test in -categoryTest- with all necessary code to make the .clear method on Category empth all categories from the list"
