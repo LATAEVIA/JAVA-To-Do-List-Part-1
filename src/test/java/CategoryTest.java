@@ -48,7 +48,11 @@ public class CategoryTest {
     assertEquals(Category.find(secondCategory.getId()), secondCategory); //why wont "Work" work in place of secondCategory?
   }
 
-
+  @Test
+  public void getTasks_initiallyReturnsEmptyList_ArrayList() {
+    Category testCategory = new Category("Home");
+    assertEquals(0, testCategory.getTasks().size());
+  }
 }
 
-// git commit -m "add fifth working test in -categoryTest- with all necessary code to make the .find method on Category .getId then return correct category"
+// git commit -m "add working test in -categoryTest- with all necessary code to make the .getTasks method on mTasks_Array start off empty"

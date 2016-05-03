@@ -4,11 +4,13 @@ public class Category {
   private String mName;
   private static ArrayList<Category> instances = new ArrayList<Category>();
   private int mId;
+  private ArrayList<Task> mTasks;
 
   public Category(String name) {
     mName = name;
     instances.add(this);
     mId = instances.size();
+    mTasks = new ArrayList<Task>();
   }
 
   public String getName() {
@@ -35,4 +37,7 @@ public class Category {
     }
   }
 
+  public ArrayList<Task> getTasks() {
+    return mTasks;
+  }
 }
