@@ -41,7 +41,14 @@ public class CategoryTest {
     assertEquals(1, testCategory.getId());
   }
 
+  @Test
+  public void find_returnsCategoryWithSameId_secondCategory() {
+    Category firstCategory = new Category("Home");
+    Category secondCategory = new Category("Work");
+    assertEquals(Category.find(secondCategory.getId()), secondCategory); //why wont "Work" work in place of secondCategory?
+  }
+
 
 }
 
-// git commit -m "add forth working test in -categoryTest- with all necessary code to make the .clear method on Category empth all categories from the list"
+// git commit -m "add fifth working test in -categoryTest- with all necessary code to make the .find method on Category .getId then return correct category"
