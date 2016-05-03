@@ -45,7 +45,9 @@ public class CategoryTest {
   public void find_returnsCategoryWithSameId_secondCategory() {
     Category firstCategory = new Category("Home");
     Category secondCategory = new Category("Work");
-    assertEquals(Category.find(secondCategory.getId()), secondCategory); //why wont "Work" work in place of secondCategory?
+    assertEquals(Category.find(secondCategory.getId()), secondCategory);
+    //why wont "Work" work in place of secondCategory?
+    //solution - I was asking for a string when the other paremeter returns an object. This will fix it --> assertEquals(Category.find(secondCategory.getId()).getName(), "Work"); 
   }
 
   @Test
@@ -53,6 +55,15 @@ public class CategoryTest {
     Category testCategory = new Category("Home");
     assertEquals(0, testCategory.getTasks().size());
   }
+
+  @Test
+  public void addTask_addsTaskToList_true() {
+    Category testCategory = new Category("Home");
+    Task testTask = new Task("Mow the lawn");
+    testCategory.addTask(testTask);
+    assertTrue(testCategory.getTasks().contains(testTask));
+  }
 }
+
 
 // git commit -m "add working test in -categoryTest- with all necessary code to make the .getTasks method on mTasks_Array start off empty"
