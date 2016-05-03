@@ -26,33 +26,12 @@ public class AppTest extends FluentTest {
   }
 
   @Test
-  public void taskIsCreatedTest() {
-    goTo("http://localhost:4567/");
-    fill("#tasks").with("Saved Task");
-    submit(".btn");
-    assertThat(pageSource()).contains("Your task has been saved.");
-  }
-
-  @Test
     public void taskIsCreatedTest() {
       goTo("http://localhost:4567/");
       fill("#description").with("Mow the lawn");
       submit(".btn");
       assertThat(pageSource()).contains("Your task has been saved.");
     }
-
-  @Test
-  public void multipleTasksAreDisplayedTest() {
-    goTo("http://localhost:4567/");
-    fill("#tasks").with("Multi Tasks");
-    submit(".btn");
-    click("a", withText("Go Back"));
-    fill("#tasks").with("Tasks Multi");
-    submit(".btn");
-    click("a", withText("Go Back"));
-    assertThat(pageSource()).contains("Multi Tasks");
-    assertThat(pageSource()).contains("Tasks Multi");
-  }
 
   @Test
   public void taskIsDisplayedTest() {
