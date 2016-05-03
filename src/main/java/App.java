@@ -35,17 +35,6 @@ public class App {
       model.put("template", "templates/success.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
-
-    get("/tasks/:id", (request, response) -> {
-      //added the route get("tasks/:id", will be called when someone clicks to see the specifications of a particular task. The :id is used to find the individual task.
-      HashMap<String, Object> model = new HashMap<String, Object>();
-      Task task = Task.find(Integer.parseInt(request.params(":id")));
-      //request.params(":id") retrieves the value passed in the :id parameter. (It gets this dynamic portion (:id) from the URL. So if the URL is /tasks/5 then request.params(":id") will be "5".)
-      //use our Task.find() method to retrieve the task whose mId is the same as :id. We then save it into the variable task and put it into our model in order to pass it to the task.vtl template.
-      model.put("task", task);
-      model.put("template", "templates/task.vtl");
-      return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
   }
 }
 
