@@ -27,4 +27,15 @@ public class CategoryTest {
     assertTrue(Category.all().contains(firstCategory));
     assertTrue(Category.all().contains(secondCategory));
   }
+
+  @Test
+  public void clear_emptiesAllCategoriesFromList_0() {
+    Category testCategory = new Category("Home");
+    Category.clear();
+    assertEquals(0, Category.all().size());
+  }
+
+
 }
+
+// git commit -m "add third working test in -categoryTest- with all necessary code to make the .all method on Category return all instances of Category"
