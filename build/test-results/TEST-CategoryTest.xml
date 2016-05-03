@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CategoryTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2016-05-03T22:04:09" hostname="epicodus-41.local" time="0.001">
+<testsuite name="CategoryTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2016-05-03T22:36:16" hostname="epicodus-41.local" time="0.002">
   <properties/>
   <testcase name="category_instantiatesCorrectly_true" classname="CategoryTest" time="0.0"/>
   <testcase name="getTasks_initiallyReturnsEmptyList_ArrayList" classname="CategoryTest" time="0.0"/>
-  <testcase name="all_returnsAllInstancesOfCategory_true" classname="CategoryTest" time="0.001"/>
-  <testcase name="getName_categoryInstantiatesWithName_Home" classname="CategoryTest" time="0.0"/>
+  <testcase name="all_returnsAllInstancesOfCategory_true" classname="CategoryTest" time="0.0"/>
+  <testcase name="getName_categoryInstantiatesWithName_Home" classname="CategoryTest" time="0.001"/>
   <testcase name="clear_emptiesAllCategoriesFromList_0" classname="CategoryTest" time="0.0"/>
   <testcase name="getId_categoriesInstantiateWithAnId_1" classname="CategoryTest" time="0.0"/>
   <testcase name="find_returnsCategoryWithSameId_secondCategory" classname="CategoryTest" time="0.0"/>

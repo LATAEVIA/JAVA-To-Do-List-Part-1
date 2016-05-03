@@ -6,6 +6,7 @@ import static spark.Spark.*;
 public class App {
   public static void main(String[] args) {
     staticFileLocation("/public");
+    //
     String layout = "templates/layout.vtl";
 
     get("/", (request, response) -> {
@@ -21,9 +22,11 @@ public class App {
     }, new VelocityTemplateEngine());
 
     post("/categories", (request, response) -> {
+      //AKA what user requested
       HashMap<String, Object> model = new HashMap<String, Object>();
       String name = request.queryParams("name");
       Category newCategory = new Category(name);
+      model.put("category", newCategory);
       model.put("template", "templates/category-success.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -55,6 +58,7 @@ public class App {
       HashMap<String, Object> model = new HashMap<String, Object>();
 
       Category category = Category.find(Integer.parseInt(request.queryParams("categoryId")));
+
 
       String description = request.queryParams("description");
       Task newTask = new Task(description);
