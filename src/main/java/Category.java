@@ -7,12 +7,16 @@ public class Category {
 
   public Category(String name) {
     mName = name;
-    // instances.add(this);
+    instances.add(this);
     // mId = instances.size();
   }
 
   public String getName() {
     return mName;
+  }
+
+  public static ArrayList<Category> all() {
+    return instances;
   }
 
   public static void clear() {
