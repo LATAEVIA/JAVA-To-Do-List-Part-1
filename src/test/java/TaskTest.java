@@ -4,6 +4,10 @@ import java.time.LocalDateTime;
 
 
 public class TaskTest {
+  @After
+  public void tearDown() {
+    Task.clear();
+  }
 
   @Test
   public void Task_createNewInstance_true() {
@@ -46,11 +50,16 @@ public class TaskTest {
 
   @Test
   public void getId_tasksInstantiateWithAnID_1() {
-    Task.clear();  // THIS TEST WILL FAIL WITHOUT THIS LINE!
     Task myTask = new Task("Mow the lawn");
-    Task myTask2 = new Task("Mow the lawn2");
-    assertEquals(2, myTask2.getId());
+    assertEquals(1, myTask.getId());
   }
+  // @Test
+  // public void getId_tasksInstantiateWithAnID_1() {
+  //   Task.clear();  // THIS TEST WILL FAIL WITHOUT THIS LINE!
+  //   Task myTask = new Task("Mow the lawn");
+  //   Task myTask2 = new Task("Mow the lawn2");
+  //   assertEquals(2, myTask2.getId());
+  // }
 
   @Test
   public void find_returnsTaskWithSameId_secondTask() {
