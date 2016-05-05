@@ -31,7 +31,7 @@ public class AppTest extends FluentTest {
     click("a", withText("Add a New Category"));
     fill("#name").with("Household chores");
     submit(".btn");
-    assertThat(pageSource()).contains("Your category has been saved");
+    assertThat(pageSource()).contains("has been saved");
   }
 
   @Test
